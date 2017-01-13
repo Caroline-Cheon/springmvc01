@@ -44,6 +44,9 @@ public class Control09 {
       }
     }
     
+    model.addAttribute("photo2_originFilename", photo2.getOriginalFilename());
+    model.addAttribute("photo2_filesize", photo2.getSize());
+    
     if (photo2.getSize() > 0) { // 파일이 있다면 저장
       // 웹 애플리케이션 실행 경로를 알아내어 그 경로에 파일을 저장한다.
       String filepath = context.getRealPath("/ex4/" + photo2.getOriginalFilename());
@@ -53,10 +56,6 @@ public class Control09 {
         e.printStackTrace();
       }
     }
-    
-    model.addAttribute("photo2_originFilename", photo2.getOriginalFilename());
-    model.addAttribute("photo2_filesize", photo2.getSize());
-    
   }
   
   
@@ -68,7 +67,6 @@ public class Control09 {
       MultipartFile photo1, MultipartFile photo2, Model model) {
     
     model.addAttribute("student",student);
-    
     
     if (photo1.getSize() > 0) { // 파일이 있다면 저장
       String newFilename = this.getNewFilename(); // 파일이름을 가진다
